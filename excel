@@ -1,0 +1,114 @@
+Sub CompareCells()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+    
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Replace "Sheet1" with your sheet name
+    
+    ' Find the last row in column A
+    lastRow = ws.Cells(ws.Rows.Count, "E").End(xlUp).Row
+    lastRow_limited = ws.Cells(ws.Rows.Count, "D").End(xlUp).Row
+    ' Loop through each row and compare cell values
+    For i = 1 To lastRow
+        ' Compare the values in columns A and B
+         If ws.Cells(i, "F").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "F").Interior.ColorIndex = 3
+End If
+ If ws.Cells(i, "G").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "G").Interior.ColorIndex = 3
+End If
+ If ws.Cells(i, "H").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "H").Interior.ColorIndex = 3
+End If
+'If ws.Cells(i, "J").Value > ws.Cells(i, "E").Value Then
+'ws.Cells(i, "J").Interior.ColorIndex = 3
+'End If
+If ws.Cells(i, "I").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "I").Interior.ColorIndex = 3
+End If
+If ws.Cells(i, "K").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "K").Interior.ColorIndex = 3
+End If
+If ws.Cells(i, "L").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "L").Interior.ColorIndex = 3
+End If
+
+
+If ws.Cells(i, "M").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "M").Interior.ColorIndex = 3
+End If
+If ws.Cells(i, "N").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "N").Interior.ColorIndex = 3
+End If
+If ws.Cells(i, "O").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "O").Interior.ColorIndex = 3
+End If
+If ws.Cells(i, "P").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "P").Interior.ColorIndex = 3
+
+End If
+If ws.Cells(i, "Q").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "Q").Interior.ColorIndex = 3
+
+End If
+If ws.Cells(i, "R").Value > ws.Cells(i, "E").Value Then
+ws.Cells(i, "R").Interior.ColorIndex = 3
+
+End If
+' MsgBox "E" & i & "i in cells I=" & ws.Cells(i, "I").Value & " and E=" & ws.Cells(i, "E").Value & " are equal."
+
+
+
+
+
+
+
+    Next i
+    ' loop for less than the limited value
+    For i = 1 To lastRow_limited
+        ' Compare the values in columns A and B
+        If ws.Cells(i, "F").Value < ws.Cells(i, "D").Value And ws.Cells(i, "F").Value <> "" Then
+            ws.Cells(i, "F").Interior.ColorIndex = 44
+            End If
+            If ws.Cells(i, "G").Value < ws.Cells(i, "D").Value And ws.Cells(i, "G").Value <> "" Then
+            ws.Cells(i, "G").Interior.ColorIndex = 44
+            End If
+            If ws.Cells(i, "H").Value < ws.Cells(i, "D").Value And ws.Cells(i, "H").Value <> "" Then
+            ws.Cells(i, "H").Interior.ColorIndex = 44
+            End If
+        'If ws.Cells(i, "J").Value < ws.Cells(i, "D").Value And ws.Cells(i, "I").Value <> "" Then
+                    'ws.Cells(i, "J").Interior.ColorIndex = 44
+                   'End If
+
+        If ws.Cells(i, "I").Value < ws.Cells(i, "D").Value And ws.Cells(i, "J").Value <> "" Then
+        ws.Cells(i, "I").Interior.ColorIndex = 44
+            End If
+       If ws.Cells(i, "K").Value < ws.Cells(i, "D").Value And ws.Cells(i, "K").Value <> "" Then
+        ws.Cells(i, "K").Interior.ColorIndex = 44
+            End If
+        If ws.Cells(i, "L").Value < ws.Cells(i, "D").Value And ws.Cells(i, "L").Value <> "" Then
+        ws.Cells(i, "L").Interior.ColorIndex = 44
+            End If
+        If ws.Cells(i, "M").Value < ws.Cells(i, "D").Value And ws.Cells(i, "M").Value <> "" Then
+        ws.Cells(i, "M").Interior.ColorIndex = 44
+            End If
+        If ws.Cells(i, "N").Value < ws.Cells(i, "D").Value And ws.Cells(i, "N").Value <> "" Then
+        ws.Cells(i, "N").Interior.ColorIndex = 44
+            End If
+        If ws.Cells(i, "O").Value < ws.Cells(i, "D").Value And ws.Cells(i, "O").Value <> "" Then
+        ws.Cells(i, "O").Interior.ColorIndex = 44
+            End If
+        If ws.Cells(i, "P").Value < ws.Cells(i, "D").Value And ws.Cells(i, "P").Value <> "" Then
+        ws.Cells(i, "P").Interior.ColorIndex = 44
+            End If
+            If ws.Cells(i, "Q").Value < ws.Cells(i, "D").Value And ws.Cells(i, "Q").Value <> "" Then
+        ws.Cells(i, "Q").Interior.ColorIndex = 44
+            End If
+            If ws.Cells(i, "R").Value < ws.Cells(i, "D").Value And ws.Cells(i, "R").Value <> "" Then
+        ws.Cells(i, "R").Interior.ColorIndex = 44
+            End If
+           
+    Next i
+End Sub
+
