@@ -3,10 +3,16 @@
 <head>
     <meta charset="utf-8"/>
     <title>Registration</title>
-    <link rel="stylesheet" href="./assets/css/auth.css"/>
+   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript" ></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript" ></script>
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/auth.css"/>
+
 </head> 
 <body>
-<?php 
+<?php  
     require('link.php');
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['username'])) {

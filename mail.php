@@ -17,8 +17,8 @@ function send_mail($recipient,$subject,$message)
   $mail->Port       = 587;
   $mail->Host       = "smtp.gmail.com";
   //$mail->Host       = "smtp.mail.yahoo.com";
-  $mail->Username   = "globalpolandnpl@gmail.com";
-  $mail->Password   = "lxxbaykblxgphskq"; // Just change password if deleted Security> 2-step Verification > app passwords > then create passwords
+  $mail->Username   = "shishantkmrs@gmail.com";
+  $mail->Password   = "rkgnzenxauphvvyl"; // Just change password if deleted Security> 2-step Verification > app passwords > then create passwords
   $mail->IsHTML(true);
   $mail->AddAddress($recipient);
   $mail->SetFrom("your-email@gmail.com");

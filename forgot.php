@@ -3,9 +3,9 @@ session_start();
 $error = array();
 
 require "mail.php";
-
-	 if(!$con = mysqli_connect("sql111.epizy.com","epiz_28317872","Pv9wigHohd3","epiz_28317872_duty")){
-//if(!$con = mysqli_connect("localhost","root","","duty")){
+include('link.php');
+	// if(!$con = mysqli_connect("sql111.epizy.com","epiz_28317872","Pv9wigHohd3","epiz_28317872_duty")){
+if(!$con){
 
 	die("could not connect");
 }

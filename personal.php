@@ -11,7 +11,7 @@ $row= mysqli_fetch_array($result);
 ?>
 
 
-<div class="container">
+<div class="container mt-3">
 	<div class="row ">
 
 

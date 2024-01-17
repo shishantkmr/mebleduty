@@ -41,6 +41,7 @@ $result = mysqli_query($con,"SELECT prsntg.*,mbl.meble_name,mbl.meble_paper_time
 				</tr>
 			</thead>
 			<input type="hidden"  class="user" data-id="<?php echo $user_name;?>">
+			<input type="hidden"  class="usr_id" data-id="<?php echo $user_id;?>">
 			<tbody>
 				<?php $i=0;
 				$j= 1; while($row=mysqli_fetch_array($result)){?>
@@ -105,6 +106,7 @@ $result = mysqli_query($con,"SELECT prsntg.*,mbl.meble_name,mbl.meble_paper_time
 				<input type="hidden" id="paper_time_sum">
 				<input type="hidden" id="digital_time_sum">
 				<input type="hidden" id="minutes">
+				<input type="hidden" id="usr_id">
 			</div>
 			<div class="card-footer">
 				<button data-role="confirm"class="btn btn-success float-left confirm">Confirm</button>
@@ -124,13 +126,13 @@ $result = mysqli_query($con,"SELECT prsntg.*,mbl.meble_name,mbl.meble_paper_time
 
 		<!-- <p class="close_btn float-right">&times;</p> -->
 		<div class="card">
-			<div class="card-header text-center"><h4>Delete Meble</h4></div>
+			<div class="card-header text-center"><h2>Delete Meble</h2></div>
 			<div class="card-body text-center">
 				<input type="hidden" id="delete_id">
 
-				<h5>Sure!!! Are you going to delete.</h5>
+				<h2>Sure!!! Are you going to delete.</h2>
 			</div>
-			<div class="cart-footer mt-3 mb-1">
+			<div class="card-footer mt-3 mb-1">
 				<button data-role="DELETE_Meble" class="btn btn-primary float-left ml-3">Delete</button>
 				<button class="btn_delete btn btn-danger float-right close_btn_delete mr-3">Cancel</button>
 			</div>
@@ -163,17 +165,18 @@ $(document).on('click', '.btn_hour', function () {
 			var id = $(this).data('id');
 			var pieces = $(this).closest('tr').find("input[type=number]").val();
 			var users = $('.user').data('id');
+			var usr_id = $('.usr_id').data('id');
 			var dates = $(this).closest('tr').find("input[type=date]").val();
 			var hour = $(this).closest('tr').find("input[data-target=hour]").val();
 			var paper_time = $(this).closest('tr').find("input[data-target=paper]").val();
 			var digital_time = $(this).closest('tr').find("input[data-target=digital]").val();
 			var minutes = $(this).closest('tr').find("input[data-target=minutes]").val();
-
-			// calculate paper time
+					// calculate paper time
 			var paper_time_sum = paper_time*pieces;
 			// calculate digital time
 			var digital_time_sum = digital_time*pieces;
 			var temp_digital_time_sum = minutes*pieces;
+			
 
  // store the data in input field
 			$('#id').val(id);  
@@ -184,6 +187,7 @@ $(document).on('click', '.btn_hour', function () {
 			$('#paper_time_sum').val(paper_time_sum);
 			$('#digital_time_sum').val(digital_time_sum);
 			$('#minutes').val(temp_digital_time_sum);
+			$('#usr_id').val(usr_id);
 			// console.log(dates);
 
 
@@ -192,6 +196,7 @@ $(document).on('click', '.btn_hour', function () {
 		$(document).on('click','button[data-role=confirm]',function(){
 			var id = $('#id').val();
 			var user =$('#user').val();
+			var usr_id =$('#usr_id').val();
 			var piece =$('#piece').val();
 			var dates =$('#date').val();
 			var hour = $('#hour').val();
@@ -202,7 +207,7 @@ $(document).on('click', '.btn_hour', function () {
 			if((piece!="")&&(dates!="")){$.ajax({
 				url : 'ajax_confirm_page.php',
 				method :'post',
-				data:{id:id,piece:piece,user:user,dates:dates,total_digital_temp_minutes:total_digital_temp_minutes,hour:hour,paper_time_sum:paper_time_sum,digital_time_sum:digital_time_sum},
+				data:{id:id,piece:piece,user:user,usr_id:usr_id,dates:dates,total_digital_temp_minutes:total_digital_temp_minutes,hour:hour,paper_time_sum:paper_time_sum,digital_time_sum:digital_time_sum},
 				success : function(response){
 					console.log(response);
 				}
@@ -213,7 +218,7 @@ $(document).on('click', '.btn_hour', function () {
 					$("#success-alert").slideUp(500);
 
 				});
-				$(this).closest('tr').find("input").val("");
+				//$(this).closest('tr').find("input").val("");
 				
 
 				location.reload(); 

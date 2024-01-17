@@ -3,9 +3,9 @@
 <!-- get data from percentage table when the confirm is 1 -->
 <!-- https://codepen.io/byrnecode/pen/GxdQdQ -->
 <?php 
-$month_name = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, sum(digital_temp_sum_minutes) as total_time,sum(user_hours_temp) as hour from percentage where meble_confirm = '1' GROUP BY MONTH(meble_cart_date) ");
+$month_name = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, sum(digital_temp_sum_minutes) as total_time,sum(user_hours_temp) as hour from percentage where meble_confirm = '1'  GROUP BY MONTH(meble_cart_date) order by meble_cart_date desc ");
 
-
+ $num = mysqli_num_rows($month_name);// this line used for work together group by and order by
 
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,7 +39,11 @@ $month_name = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, sum(
 
 							<li class="has-children">
 								<div class="acnav__label acnav__label--level2">
-									<?php echo $months;?> <aside class="float-right"><?php  $total_meble_minute=$row['total_time'];	 
+									<span class="percent_month_font_size"><?php echo $months;?></span > 
+									<i class="pl-3 percent_minute_font_size percent_minute_margin text-center" >
+										<?php echo number_format((float) $row['total_time'],2);?>min/ <i><?php echo $row['hour'];?>hrs</i>
+									</i>
+									<aside class="float-right"><?php  $total_meble_minute=$row['total_time'];	 
 									$total_job_time = $row['hour']*60;
 									$percent=($row['total_time']/$total_job_time)*100; echo number_format((float)$percent, 2);?>%</aside>
 								</div>
@@ -49,15 +53,20 @@ $month_name = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, sum(
 									<li class="has-children">
 										<?php 
 
-										$meble_time = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, user_hours_temp, sum(digital_temp_sum_minutes) as total_time, sum(user_hours_temp)as working_time from percentage where meble_confirm = '1' and MONTHNAME(meble_cart_date)='$months' GROUP BY meble_cart_date order");
+										$meble_time = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, user_hours_temp, sum(digital_temp_sum_minutes) as total_time, sum(user_hours_temp)as working_time from percentage where meble_confirm = '1' and MONTHNAME(meble_cart_date)='$months' GROUP BY meble_cart_date ");
 
 
 										while($row = mysqli_fetch_array($meble_time))
 											{?>
 												<div class="acnav__label acnav__label--level3">
 													<?php $cart_date = $row['meble_cart_date']; echo date("d F, ",strtotime($row['meble_cart_date']));?>
-													<span class="font-weight-bold">Minute (<?php echo number_format((float)$row['total_time'], 2).'/ H ';echo $row['working_time'];?>)</span>
-													<span class="float-right"><?php  $total_work_minute=$row['total_time']; $row['total_time'];  $user_work_minute= $row['working_time']*60;   $percentage = ($total_work_minute/$user_work_minute)*100 ; echo number_format((float)$percentage, 2);?>%</span>
+													<span class="percent_minute_font_size pl-3">Minute (<?php echo number_format((float)$row['total_time'], 2).'/ H ';echo $row['working_time'];?>)</span>
+													<span class="float-right"><?php  $total_work_minute=$row['total_time']; $row['total_time'];  
+													// IF USER HOUR IS ZERO
+													if($row['working_time']==0){$user_work_minute=1;}else{$user_work_minute= $row['working_time']*60;}
+													   
+													$percentage = ($total_work_minute/$user_work_minute)*100 ;
+													 echo number_format((float)$percentage, 2);?>%</span>
 
 												</div>
 												<!-- start level 4 -->
@@ -156,6 +165,7 @@ $month_name = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, sum(
 //	Multi-level accordion nav
 // ==========================================================================
 			$(".acnav__label").click(function () {
+				 localStorage.setItem('show','true');// last time edited
 				var label = $(this);
 				var parent = label.parent(".has-children");
 				var list = label.siblings(".acnav__list");
@@ -196,7 +206,7 @@ $month_name = mysqli_query($con, "SELECT meble_cart_date,meble_who_confirm, sum(
 			}
 
 			[hidden] {
-				display: none;
+				display: none!important;/* last time edited */
 				visibility: hidden;
 			}
 

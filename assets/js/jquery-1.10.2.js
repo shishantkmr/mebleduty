@@ -96,14 +96,14 @@ var
 	},
 
 	// The ready event handler
-	completed = function( event ) {
+	// completed = function( event ) {
 
 		// readyState === "complete" is good enough for us to call the dom ready in oldIE
-		if ( document.addEventListener || event.type === "load" || document.readyState === "complete" ) {
-			detach();
-			jQuery.ready();
-		}
-	},
+		// if ( document.addEventListener || event.type === "load" || document.readyState === "complete" ) {
+			// detach();
+			// jQuery.ready();
+		// }
+	// },
 	// Clean-up method for dom ready events
 	detach = function() {
 		if ( document.addEventListener ) {

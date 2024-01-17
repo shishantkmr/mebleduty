@@ -29,7 +29,7 @@ $row= mysqli_fetch_array($result);
 	
 	<div class="row ">
 		<div class="col-sm-12 col-lg-10 col-md-10 col-xl-10 col-xxl-10 mt-5">
-			<form action="insert.php" method="Post" enctype="multipart/form-data">
+			<form  action="insert.php" method="Post" enctype="multipart/form-data">
 				
 				<label class=" font-weight-bold text-white form-control bg-success">Create Post <span class="bg-primary float-right text-white"><a href="duty_list.php"> List </a></span></label>
 
@@ -78,7 +78,7 @@ $row= mysqli_fetch_array($result);
 
 				<div class="form-group">
 
-					<button type="submit" id ="success"class="btn btn-success"> Send Post</button>
+					<button name="submit" type="submit" id ="success"class="btn btn-success"> Send Post</button>
 				</div>
 			</form>
 		</div>   
@@ -86,5 +86,6 @@ $row= mysqli_fetch_array($result);
 </div>
 
 <?php
+
 include('footer.php');
 ?>

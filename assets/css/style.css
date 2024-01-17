@@ -1997,3 +1997,101 @@ section {
   text-decoration: none;
   cursor: pointer;
 }
+.percentage_btn{ border:2px solid lime; line-height: 20px; border-radius: 4px;padding: 0  3px;}
+.percentage_btn:hover{background-color: blue; border:2px solid blue; transition: 0.4s  ease-Out;color: white;}
+.percent_month_font_size{font-size: 17px;}
+.percent_minute_font_size{font-size: 15px}
+.percent_minute_margin{position: absolute; left:50%;padding-left:25px; }
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*select list with checkbox in header*/
+.member_name{text-align: right; position: relative; padding:-15px!important;left:20%; list-style-type: none;}
+.card-header{margin:0!important; padding: 0!important;}
+.multiselect {
+  width: 100%;
+  border: none;
+}
+
+.selectBox,.selectBox1 {
+  position: relative;
+}
+
+.selectBox select,.selectBox1 select {
+  width: 100%;
+  font-size: 17px;
+  background-color: orange;
+}
+.close_addmember{ font-size:20px; color: white; border: 1px solid white; border-radius:4px; padding:0px 5px 0px ;margin: 2px 2px;}
+.close_addmember:hover{ font-size:22px; cursor:pointer; transition:.1s ease }
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+ input[type=checkbox]{color:red; width:17px; height: 17px;}
+
+#checkboxes,#checkboxes1 {
+  display: none;
+  border: 1px #dadada solid;
+  font-size: 20px;
+  padding: 5px 5px 2px 10px;
+}
+
+#checkboxes label,#checkboxes1 label {
+  display: block;
+  border-bottom: 1px solid lavender;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+#checkboxes1 label:hover {
+  background-color: #1e90ff;
+}
+/*tab panel for member on header page*/
+h1 {
+  text-align: center;
+}
+.nav-tabs-outer {
+    overflow-x: scroll;
+  margin: 20px;
+}
+.nav-tabs-outer > ul > li {
+  display: block;
+  width: 33.33%;
+}
+
+.tab-content {
+  background: #eee;
+}
+.tab-content img {
+  padding: 15px;
+  float: left;
+}
+.tab-content p {
+  height: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+.tab-pane:after {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="eng">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicons -->
+    <link href="./assets/img/favicon.png" rel="icon">
+    <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Login</title>
-    <link rel="stylesheet" href="./assets/css/auth.css"/>
+    <link rel="stylesheet" href="assets/css/auth.css"/>
     <!-- great vibes fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(https://galeria.bankier.pl/p/c/d/08107ab74ab406-916-550-30-5-916-550.jpg); background-size: cover;">
     <?php
     clearstatcache();
-    require('link.php');
+    include('link.php');
     session_start();
     // When form submitted, check and create user session.
     if (isset($_POST['email'])) {
@@ -41,6 +45,7 @@
         ?>
 
         <div class="container" >
+           
          <form class="forms" method="post" name="login">
             <div class="row" style="height: 100vh;">
                 <div class="card-box text-center d-flex align-self-center justify-content-center">
@@ -62,7 +67,7 @@
                             <div class="row  justify-content-center">
 
                                 <div class=" col-sm-9 col-md-9 py-4">
-                                    <input type="text" name="email" class="form-control" placeholder="User id">
+                                    <input type="text" name="email" class="form-control" placeholder="User id" autofocus>
                                 </div>
 
                                 <!-- password -->
@@ -83,7 +88,7 @@
                             <p>
                                 <a class="btn btn-primary" href="register.php"> Register</a>
                           
-                                <a  class="btn btn-danger" href="forgot.php">forgot your password? </a>
+                                <a  class="btn btn-danger" href="./forgot.php">forgot your password? </a>
                             </p>
                         </div>
                     </div>
